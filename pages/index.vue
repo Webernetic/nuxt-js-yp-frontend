@@ -1,18 +1,20 @@
+<script setup lang="ts">
+import { onMounted } from 'vue';
+import SectionCover from '../components/banner/SectionCover'
+
+onMounted(() => {
+  document.body.classList.add('index');
+});
+
+</script>
 <template>
   <div>
-    <div class="ftco-blocks-cover-1">
-      <div class="site-section-cover overlay" data-stellar-background-ratio="0.5" style="background-image: url('/images/hero_1.jpg')">
-        <div class="container">
-          <div class="row align-items-center justify-content-center text-center">
-            <div class="col-md-7">
-              <h1 class="mb-3">More Than Just A Haircut</h1>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta veritatis in tenetur doloremque, maiores doloribus officia iste. Dolores.</p>
-              <p><a href="#" class="btn btn-primary">Learn More</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <SectionCover
+        title="Лучший барбер города"
+        description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta veritatis in tenetur doloremque, maiores doloribus officia iste. Dolores."
+        bg-image="/images/hero_1.jpg"
+        :scroll-space-index="0.035"
+    ></SectionCover>
 
     <div class="site-section">
       <div class="container">
@@ -145,7 +147,7 @@
     </div>
     <!-- END section -->
 
-    <div class="site-section section-3" data-stellar-background-ratio="0.5" style="background-image: url('images/hero_2.jpg');">
+    <div class="site-section section-3" data-stellar-background-ratio="0.5" style="background-image: url('/images/hero_2.jpg');">
       <div class="container">
         <div class="row justify-content-center text-center">
           <div class="col-7 text-center mb-5">
@@ -337,7 +339,7 @@
     </div>
 
 
-    <div class="site-section section-3" data-stellar-background-ratio="0.5" style="background-image: url('images/hero_1.jpg');">
+    <div class="site-section section-3" data-stellar-background-ratio="0.5" style="background-image: url(/images/hero_1.jpg);">
       <div class="container">
         <div class="row justify-content-center text-center">
           <div class="col-7 text-center mb-5">
@@ -350,12 +352,6 @@
     </div>
   </div>
 </template>
-
-<script setup>
-onMounted(() => {
-  document.body.classList.add('index');
-})
-</script>
 
 <style scoped lang="scss">
 

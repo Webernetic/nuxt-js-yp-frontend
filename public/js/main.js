@@ -291,10 +291,10 @@ jQuery(document).ready(function($) {
   siteScroll();
 
   // Stellar
-  $(window).stellar({
-  	horizontalScrolling: false,
-    responsive: true,
-  });
+  // $(window).stellar({
+  // 	horizontalScrolling: false,
+  //   responsive: true,
+  // });
 
 
   var counter = function() {

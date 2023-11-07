@@ -1,21 +1,14 @@
 <script setup lang="ts">
+import SectionCover from '../../components/banner/SectionCover'
 </script>
 
 <template>
 <div>
-  <div class="ftco-blocks-cover-1">
-    <div class="site-section-cover overlay" data-stellar-background-ratio="0.5" style="background-image: url('/images/hero_1.jpg')">
-      <div class="container">
-        <div class="row align-items-center justify-content-center text-center">
-          <div class="col-md-7">
-            <h1 class="mb-3">Blog Posts</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta veritatis in tenetur doloremque, maiores doloribus officia iste. Dolores.</p>
-            <p><a href="#" class="btn btn-primary">Learn More</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <SectionCover
+      title="Мой блог"
+      description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta veritatis in tenetur doloremque, maiores doloribus officia iste. Dolores."
+      bg-image="/images/hero_1.jpg"
+  ></SectionCover>
 
   <div class="site-section bg-light">
     <div class="container">
