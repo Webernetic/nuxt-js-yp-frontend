@@ -1,6 +1,121 @@
-<script setup lang="ts">
-import { onMounted } from 'vue';
-import SectionCover from '../components/banner/SectionCover'
+<script setup>
+import { onMounted, ref } from 'vue';
+import SectionCover from '~/components/banner/SectionCover';
+import Welcome from '~/components/main/Welcome';
+import Slider from '~/components/main/Slider';
+import MoreHairStyles from '~/components/main/MoreHairStyles';
+import MoreServices from '~/components/main/MoreServices';
+import Reviews from '~/components/main/Reviews';
+import Blog from '~/components/main/Blog';
+import Booking from '~/components/main/Booking';
+
+const items = ref([
+  {
+    id: 1,
+    image: '/images/img_1.jpg',
+    title: 'Бритье Бороды',
+    price: '35 BYN'
+  },
+  {
+    id: 2,
+    image: '/images/img_2.jpg',
+    title: 'Бритье Бороды 2',
+    price: '30 BYN'
+  },
+  {
+    id: 3,
+    image: '/images/img_3.jpg',
+    title: 'Бритье Бороды 3',
+    price: '50 BYN'
+  }
+]);
+
+const services = ref([
+  {
+    id: 1,
+    title: 'Стрижка',
+    icon: 'flaticon-bald',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, laboriosam.'
+  },
+  {
+    id: 2,
+    title: 'Уход за лицом',
+    icon: 'flaticon-beard',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, laboriosam.'
+  },
+  {
+    id: 3,
+    title: 'Hair Cut',
+    icon: 'flaticon-scissors',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, laboriosam.'
+  },
+  {
+    id: 4,
+    title: 'Стрижка',
+    icon: 'flaticon-hair-spray',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, laboriosam.'
+  },
+  {
+    id: 5,
+    title: 'Facial &amp; Body Care',
+    icon: 'flaticon-hair',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, laboriosam.'
+  },
+  {
+    id: 6,
+    title: 'Massages',
+    icon: 'flaticon-barber-shop',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, laboriosam.'
+  }
+]);
+
+const reviews = ref([
+  {
+    id: 1,
+    image: '/images/person_1.jpg',
+    name: 'Mike Fisher',
+    description: '"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, deserunt eveniet veniam. Ipsam, nam, voluptatum"'
+  },
+  {
+    id: 1,
+    image: '/images/person_2.jpg',
+    name: 'Jean Stanley',
+    description: '"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, deserunt eveniet veniam. Ipsam, nam, voluptatum"'
+  },
+  {
+    id: 1,
+    image: '/images/person_3.jpg',
+    name: 'Katie Rose',
+    description: '"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, deserunt eveniet veniam. Ipsam, nam, voluptatum"'
+  }
+]);
+
+const posts = ref([
+  {
+    id: 1,
+    image: '/images/img_1.jpg',
+    title: 'Lorem ipsum dolor sit amet',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores eos soluta, dolore harum molestias consectetur.',
+    date: 'July 17, 2019',
+    link: 'lorem-ipsum-1'
+  },
+  {
+    id: 1,
+    image: '/images/img_2.jpg',
+    title: 'Lorem ipsum dolor sit amet',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores eos soluta, dolore harum molestias consectetur.',
+    date: 'July 15, 2019',
+    link: 'lorem-ipsum-2'
+  },
+  {
+    id: 1,
+    image: '/images/img_3.jpg',
+    title: 'Lorem ipsum dolor sit amet',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores eos soluta, dolore harum molestias consectetur.',
+    date: 'July 14, 2019',
+    link: 'lorem-ipsum-3'
+  }
+]);
 
 onMounted(() => {
   document.body.classList.add('index');
@@ -16,340 +131,73 @@ onMounted(() => {
         :scroll-space-index="0.035"
     ></SectionCover>
 
-    <div class="site-section">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6 mb-5 mb-lg-0">
-            <div class="img-years">
-              <img src="/images/img_1.jpg" alt="Image" class="img-fluid">
-              <div class="year">
-                <span>3 <span>years in <br>excellent service</span></span>
-              </div>
-            </div>
-
-          </div>
-          <div class="col-lg-5 ml-auto pl-lg-5 text-center">
-            <h3 class="scissors text-center">Welcome To Barberz!</h3>
+    <Welcome image="/images/img_1.jpg" title="<span>3 <span>года <br>отличного сервиса</span></span>">
+      <template v-slot:footer>
+        <div class="col-lg-5 ml-auto pl-lg-5 text-center">
+            <h3 class="scissors text-center">Добро пожаловать!</h3>
             <p class="mb-5 lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure nesciunt nemo vel earum maxime neque!</p>
-            <p><a href="#" class="btn btn-primary">Learn More</a></p>
+            <p><a href="#" class="btn btn-primary">Узнать больше</a></p>
           </div>
-        </div>
-      </div>
-    </div>
+      </template>
+    </Welcome>
 
+    <Slider>
+      <template v-slot:header>
+        <h3 class="scissors text-center">Услуги &amp; Цены</h3>
+        <p class="mb-5 lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure nesciunt nemo vel earum maxime neque!</p>
+      </template>
+    </Slider>
 
-
-    <div class="site-section bg-light">
-      <div class="container">
-        <div class="row justify-content-center  mb-5">
-          <div class="col-md-7 text-center">
-            <h3 class="scissors text-center">Services &amp; Pricing</h3>
-            <p class="mb-5 lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure nesciunt nemo vel earum maxime neque!</p>
-
-            <p class="text-center">
-              <a href="#" class="btn btn-primary custom-prev">Prev</a>
-              <a href="#" class="btn btn-primary custom-next">Next</a>
-            </p>
-          </div>
-
-        </div>
-        <div class="row">
-          <div class="col-12">
-
-            <div class="nonloop-block-13 owl-carousel d-flex">
-
-              <div class="item-1 h">
-                <img src="/images/img_1.jpg" alt="Image" class="img-fluid">
-                <div class="item-1-contents">
-                  <h3>Haircut</h3>
-                  <ul>
-                    <li class="d-flex"><span>Men's Cut</span> <span class="price ml-auto">$29.00</span></li>
-                    <li class="d-flex"><span>Men's Cut with Shampoo and Blow Dry</span><span class="price ml-auto">$10.00</span></li>
-                    <li class="d-flex"><span>Ladie's Cut with Shampoo and Blow Dry</span><span class="price ml-auto">$32.00</span></li>
-                    <li class="d-flex"><span>Head Shave</span><span class="price ml-auto">$23.00</span></li>
-                    <li class="d-flex"><span>Hair Art</span><span class="price ml-auto">$54.00</span></li>
-                  </ul>
-                </div>
-
-              </div>
-
-              <div class="item-1 h">
-                <img src="/images/img_2.jpg" alt="Image" class="img-fluid">
-                <div class="item-1-contents">
-                  <h3>Hair Styling</h3>
-                  <ul>
-                    <li class="d-flex"><span>Shampoo</span> <span class="price ml-auto">$29.00</span></li>
-                    <li class="d-flex"><span>Blow Dry</span><span class="price ml-auto">$10.00</span></li>
-                    <li class="d-flex"><span>Iron</span><span class="price ml-auto">$32.00</span></li>
-                    <li class="d-flex"><span>Brazilian Blow Out</span><span class="price ml-auto">$23.00</span></li>
-                    <li class="d-flex"><span>Hair Art</span><span class="price ml-auto">$54.00</span></li>
-                  </ul>
-                </div>
-
-              </div>
-
-              <div class="item-1 h">
-                <img src="/images/img_3.jpg" alt="Image" class="img-fluid">
-                <div class="item-1-contents">
-                  <h3>Hair Scalp Care</h3>
-                  <ul>
-                    <li class="d-flex"><span>Shampoo</span> <span class="price ml-auto">$29.00</span></li>
-                    <li class="d-flex"><span>Blow Dry</span><span class="price ml-auto">$10.00</span></li>
-                    <li class="d-flex"><span>Iron</span><span class="price ml-auto">$32.00</span></li>
-                    <li class="d-flex"><span>Brazilian Blow Out</span><span class="price ml-auto">$23.00</span></li>
-                    <li class="d-flex"><span>Hair Art</span><span class="price ml-auto">$54.00</span></li>
-                  </ul>
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="site-section">
-      <div class="container">
+    <MoreHairStyles :items="items">
+      <template v-slot:header>
         <div class="row justify-content-center mb-5">
           <div class="col-md-7 text-center">
-            <h3 class="scissors text-center">More Hair Styles</h3>
+            <h3 class="scissors text-center">Больше причесок</h3>
             <p class="mb-5 lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure nesciunt nemo vel earum maxime neque!</p>
           </div>
         </div>
-        <div class="row hair-style">
-          <div class="col-lg-4 col-md-4 col-sm-6 col-12">
-            <a href="#" class="place">
-              <img src="/images/img_1.jpg" alt="Image placeholder">
-              <h2>Beard Shaving</h2>
-              <span>$50.00 only</span>
-            </a>
-          </div>
-          <div class="col-lg-4 col-md-4 col-sm-6 col-12">
-            <a href="#" class="place">
-              <img src="/images/img_2.jpg" alt="Image placeholder">
-              <h2>Crew Cut</h2>
-              <span>$50.00 only</span>
-            </a>
-          </div>
-          <div class="col-lg-4 col-md-4 col-sm-6 col-12">
-            <a href="#" class="place">
-              <img src="/images/img_3.jpg" alt="Image placeholder">
-              <h2>Beard Trim</h2>
-              <span>$50.00 only</span>
-            </a>
-          </div>
-
-        </div>
-      </div>
-    </div>
+      </template>
+    </MoreHairStyles>
     <!-- END section -->
-
-    <div class="site-section section-3" data-stellar-background-ratio="0.5" style="background-image: url('/images/hero_2.jpg');">
-      <div class="container">
+    <MoreServices :items="services" :bg-image="'/images/hero_2.jpg'">
+      <template v-slot:header>
         <div class="row justify-content-center text-center">
           <div class="col-7 text-center mb-5">
-            <h2 class="text-white scissors primary-color-icon text-center">More Services</h2>
+            <h2 class="text-white scissors primary-color-icon text-center">Больше услуг</h2>
             <p class="lead text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam quo doloribus, suscipit libero, voluptate aliquam.</p>
           </div>
         </div>
-        <div class="row">
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="service-1">
-              <span class="service-1-icon">
-                <span class="flaticon-bald"></span>
-              </span>
-              <div class="service-1-contents">
-                <h3>Hair Cut</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, laboriosam.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="service-1">
-              <span class="service-1-icon">
-                <span class="flaticon-beard"></span>
-              </span>
-              <div class="service-1-contents">
-                <h3>Facial &amp; Body Care</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, laboriosam.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="service-1">
-              <span class="service-1-icon">
-                <span class="flaticon-scissors"></span>
-              </span>
-              <div class="service-1-contents">
-                <h3>Massages</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, laboriosam.</p>
-              </div>
-            </div>
-          </div>
+      </template>
+    </MoreServices>
 
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="service-1">
-              <span class="service-1-icon">
-                <span class="flaticon-hair-spray"></span>
-              </span>
-              <div class="service-1-contents">
-                <h3>Hair Cut</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, laboriosam.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="service-1">
-              <span class="service-1-icon">
-                <span class="flaticon-hair"></span>
-              </span>
-              <div class="service-1-contents">
-                <h3>Facial &amp; Body Care</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, laboriosam.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="service-1">
-              <span class="service-1-icon">
-                <span class="flaticon-barber-shop"></span>
-              </span>
-              <div class="service-1-contents">
-                <h3>Massages</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, laboriosam.</p>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-
-
-
-    <div class="site-section bg-light">
-      <div class="container">
-        <div class="row justify-content-center text-center mb-5">
+   <Reviews :items="reviews">
+    <template v-slot:header>
+      <div class="row justify-content-center text-center mb-5">
           <div class="col-7 text-center mb-5">
-            <h2 class="scissors text-center">Our Top Client Says</h2>
+            <h2 class="scissors text-center">Отзывы клиентов</h2>
             <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo assumenda, dolorum necessitatibus eius earum voluptates sed!</p>
           </div>
         </div>
-        <div class="row">
-          <div class="col-lg-4 mb-4 mb-lg-0">
-            <div class="testimonial-2">
-              <div class="d-flex v-card align-items-center mb-4">
-                <img src="/images/person_1.jpg" alt="Image" class="img-fluid mr-3">
-                <span>Mike Fisher</span>
-              </div>
-              <blockquote>
-                <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, deserunt eveniet veniam. Ipsam, nam, voluptatum"</p>
-              </blockquote>
+    </template>
+  </Reviews>
 
-            </div>
-          </div>
-          <div class="col-lg-4 mb-4 mb-lg-0">
-            <div class="testimonial-2">
-              <div class="d-flex v-card align-items-center mb-4">
-                <img src="/images/person_2.jpg" alt="Image" class="img-fluid mr-3">
-                <span>Jean Stanley</span>
-              </div>
-              <blockquote>
-                <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, deserunt eveniet veniam. Ipsam, nam, voluptatum"</p>
-              </blockquote>
-
-            </div>
-          </div>
-          <div class="col-lg-4 mb-4 mb-lg-0">
-            <div class="testimonial-2">
-              <div class="d-flex v-card align-items-center mb-4">
-                <img src="/images/person_3.jpg" alt="Image" class="img-fluid mr-3">
-                <span>Katie Rose</span>
-              </div>
-              <blockquote>
-                <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, deserunt eveniet veniam. Ipsam, nam, voluptatum"</p>
-              </blockquote>
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="site-section bg-white">
-      <div class="container">
-        <div class="row justify-content-center text-center mb-5">
+  <Blog :items="posts">
+    <template #header>
+      <div class="row justify-content-center text-center mb-5">
           <div class="col-7 text-center mb-5">
-            <h2 class="scissors text-center">Our Blog</h2>
+            <h2 class="scissors text-center">Мой блог</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo assumenda, dolorum necessitatibus eius earum voluptates sed!</p>
           </div>
         </div>
-
-        <div class="row">
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="post-entry-1 h-100">
-              <a href="single.html">
-                <img src="/images/img_1.jpg" alt="Image"
-                     class="img-fluid">
-              </a>
-              <div class="post-entry-1-contents">
-
-                <h2><a href="single.html">Lorem ipsum dolor sit amet</a></h2>
-                <span class="meta d-inline-block mb-3">July 17, 2019 <span class="mx-2">by</span> <a href="#">Admin</a></span>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores eos soluta, dolore harum molestias consectetur.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="post-entry-1 h-100">
-              <a href="single.html">
-                <img src="/images/img_2.jpg" alt="Image"
-                     class="img-fluid">
-              </a>
-              <div class="post-entry-1-contents">
-
-                <h2><a href="single.html">Lorem ipsum dolor sit amet</a></h2>
-                <span class="meta d-inline-block mb-3">July 17, 2019 <span class="mx-2">by</span> <a href="#">Admin</a></span>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores eos soluta, dolore harum molestias consectetur.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="post-entry-1 h-100">
-              <a href="single.html">
-                <img src="/images/img_3.jpg" alt="Image"
-                     class="img-fluid">
-              </a>
-              <div class="post-entry-1-contents">
-
-                <h2><a href="single.html">Lorem ipsum dolor sit amet</a></h2>
-                <span class="meta d-inline-block mb-3">July 17, 2019 <span class="mx-2">by</span> <a href="#">Admin</a></span>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores eos soluta, dolore harum molestias consectetur.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="site-section section-3" data-stellar-background-ratio="0.5" style="background-image: url(/images/hero_1.jpg);">
-      <div class="container">
-        <div class="row justify-content-center text-center">
-          <div class="col-7 text-center mb-5">
-            <h2 class="text-white scissors primary-color-icon text-center">Quality Haircut</h2>
-            <p class="lead text-white mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam quo doloribus, suscipit libero, voluptate aliquam.</p>
-            <p><a href="#" class="btn btn-primary">Contact Us Now</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
+    </template>
+  </Blog>
+  <Booking :bg-image="'/images/hero_1.jpg'">
+    <template>
+      <h2 class="text-white scissors primary-color-icon text-center">Записаться на стрижку</h2>
+      <p class="lead text-white mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam quo doloribus, suscipit libero, voluptate aliquam.</p>
+      <p><a href="#" class="btn btn-primary">Записаться</a></p>
+    </template>
+  </Booking>
   </div>
 </template>
 
