@@ -117,6 +117,105 @@ const posts = ref([
   }
 ]);
 
+const slides = ref([
+  {
+    id: 1,
+    image: '/images/img_1.jpg',
+    title: 'Haircut',
+    options: [
+     {
+        id: 1,
+        title: 'Men\'s Cut',
+        price: '29 BYN'
+      },
+      {
+        id: 2,
+        title: 'Men\'s Cut with Shampoo and Blow Dry',
+        price: '30 BYN'
+      },
+      {
+        id: 3,
+        title: 'Men\'s Cut with Shampoo and Blow Dry',
+        price: '32 BYN'
+      },
+      {
+        id: 4,
+        title: 'Head Shave',
+        price: '23 BYN'
+      },
+      {
+        id: 5,
+        title: 'Hair Art',
+        price: '54 BYN'
+      }
+    ]
+  },
+  {
+    id: 1,
+    image: '/images/img_3.jpg',
+    title: 'Hair Scalp Care',
+    options: [
+      {
+        id: 1,
+        title: 'Men\'s Cut',
+        price: '29 BYN'
+      },
+      {
+        id: 2,
+        title: 'Men\'s Cut with Shampoo and Blow Dry',
+        price: '30 BYN'
+      },
+      {
+        id: 3,
+        title: 'Men\'s Cut with Shampoo and Blow Dry',
+        price: '32 BYN'
+      },
+      {
+        id: 4,
+        title: 'Head Shave',
+        price: '23 BYN'
+      },
+      {
+        id: 5,
+        title: 'Hair Art',
+        price: '54 BYN'
+      }
+    ]
+  },
+  {
+    id: 1,
+    image: '/images/img_2.jpg',
+    title: 'Hair Styling',
+    options: [
+      {
+        id: 1,
+        title: 'Shampoo',
+        price: '29 BYN'
+      },
+      {
+        id: 2,
+        title: 'Blow Dry',
+        price: '10 BYN'
+      },
+      {
+        id: 3,
+        title: 'Iron',
+        price: '32 BYN'
+      },
+      {
+        id: 4,
+        title: 'Brazilian Blow Out',
+        price: '23 BYN'
+      },
+      {
+        id: 5,
+        title: 'Hair Art',
+        price: '23 BYN'
+      }
+    ]
+  }
+]);
+
 onMounted(() => {
   document.body.classList.add('index');
 });
@@ -141,7 +240,7 @@ onMounted(() => {
       </template>
     </Welcome>
 
-    <Slider>
+    <Slider :items="slides">
       <template v-slot:header>
         <h3 class="scissors text-center">Услуги &amp; Цены</h3>
         <p class="mb-5 lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure nesciunt nemo vel earum maxime neque!</p>
@@ -192,7 +291,7 @@ onMounted(() => {
     </template>
   </Blog>
   <Booking :bg-image="'/images/hero_1.jpg'">
-    <template>
+    <template v-slot:header>
       <h2 class="text-white scissors primary-color-icon text-center">Записаться на стрижку</h2>
       <p class="lead text-white mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam quo doloribus, suscipit libero, voluptate aliquam.</p>
       <p><a href="#" class="btn btn-primary">Записаться</a></p>

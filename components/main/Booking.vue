@@ -12,7 +12,7 @@ const props = defineProps({
       <div class="container">
         <div class="row justify-content-center text-center">
           <div class="col-7 text-center mb-5">
-           <slot />
+           <slot name="header" />
           </div>
         </div>
       </div>
