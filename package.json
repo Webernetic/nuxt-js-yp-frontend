@@ -16,6 +16,8 @@
     "vue-router": "^4.2.5"
   },
   "dependencies": {
-    "gsap": "^3.12.2"
+    "@popperjs/core": "^2.11.8",
+    "gsap": "^3.12.2",
+    "v-calendar": "^3.1.2"
   }
 }

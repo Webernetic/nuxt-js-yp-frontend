@@ -240,13 +240,6 @@ onMounted(() => {
       </template>
     </Welcome>
 
-    <Slider :items="slides">
-      <template v-slot:header>
-        <h3 class="scissors text-center">Услуги &amp; Цены</h3>
-        <p class="mb-5 lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure nesciunt nemo vel earum maxime neque!</p>
-      </template>
-    </Slider>
-
     <MoreHairStyles :items="items">
       <template v-slot:header>
         <div class="row justify-content-center mb-5">
@@ -294,7 +287,7 @@ onMounted(() => {
     <template v-slot:header>
       <h2 class="text-white scissors primary-color-icon text-center">Записаться на стрижку</h2>
       <p class="lead text-white mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam quo doloribus, suscipit libero, voluptate aliquam.</p>
-      <p><a href="#" class="btn btn-primary">Записаться</a></p>
+      <p><nuxt-link to="/contact#book-order" class="btn btn-primary">Записаться</nuxt-link></p>
     </template>
   </Booking>
   </div>
